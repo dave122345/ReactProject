@@ -12,7 +12,7 @@ class GameItem extends React.Component {
     super();
     this.DeleteGame = this.DeleteGame.bind(this);
   }
-
+// Deletion
   DeleteGame(e) {
     console.log("Delete Clicked");
     axios.delete("http://localhost:4000/api/games/" + this.props.games._id)
@@ -24,8 +24,8 @@ class GameItem extends React.Component {
   render() {
     return (
       <div >
-
-        <Card bg="info" border="light" style={{ width: '50%' , height: '50%'}}>
+          {/* Cards for the list of games */}
+        <Card bg="info" border="light" style={{ width: '30rem'}}>
           <Card.Header>{this.props.games.title}</Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">

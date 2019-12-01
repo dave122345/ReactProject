@@ -24,6 +24,7 @@ class ReadListings extends React.Component {
     render() {
         return (
             <div>
+                {/* reading server for game list and the info inside */}
                 <h1>Game List</h1>
                 <Games myGames={this.state.games}></Games>
                 <Helmet>

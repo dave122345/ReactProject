@@ -15,7 +15,7 @@ class EditListing extends React.Component {
             Price: '',
             _id: ''
         };
-
+        // handling for the editing
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleGameTitleChange = this.handleGameTitleChange.bind(this);
         this.handleGameDateChange = this.handleGameDateChange.bind(this);
@@ -68,7 +68,7 @@ class EditListing extends React.Component {
             poster: this.state.Poster,
             price: this.state.Price
         };
-
+        // used to push the new info up to server
         axios.put('http://localhost:4000/api/games/' + this.state._id, newGame)
 
             .then()
@@ -84,6 +84,7 @@ class EditListing extends React.Component {
     render() {
         return (
             <div>
+                {/* layout for the edit info */}
                 <h1>Edit Game details</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className='form-group'>

@@ -13,7 +13,7 @@ class CreateGame extends React.Component {
       Poster: '',
       Price: ''
     };
-
+// handling for creating a game data
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGameTitleChange = this.handleGameTitleChange.bind(this);
     this.handleGameDateChange = this.handleGameDateChange.bind(this);
@@ -49,6 +49,7 @@ class CreateGame extends React.Component {
       poster: this.state.Poster,
       price: this.state.Price
     };
+    // used for posting info to server
     axios.post('http://localhost:4000/api/games', newGame)
       .then()
       .catch();
@@ -66,6 +67,7 @@ class CreateGame extends React.Component {
     return (
 
       <div>
+        {/* form layout for creating a game */}
         <h1>Create game listing</h1>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
