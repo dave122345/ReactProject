@@ -29,7 +29,7 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema({
     title: String,
-    year: String,
+    date: String,
     poster: String,
     price: String
 
@@ -69,7 +69,7 @@ app.get('/api/games', (req, res) => {
 
 })
 
-app.get('/api/game/:id', (req, res) => {
+app.get('/api/games/:id', (req, res) => {
     console.log(req.params.id);
 
     GameModel.findById(req.params.id, (error, data) => {
@@ -103,13 +103,13 @@ app.delete('/api/games/:id', (req, res) => {
 app.post('/api/games', (req, res) => {
     console.log('Post request Successful!');
     console.log(req.body.title);
-    console.log(req.body.year);
+    console.log(req.body.date);
     console.log(req.body.poster);
     console.log(req.body.price);
 
     GameModel.create({
         title: req.body.title,
-        year: req.body.year,
+        date: req.body.date,
         poster: req.body.poster,
         price: req.body.price
     });

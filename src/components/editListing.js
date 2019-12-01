@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 //import response from 'response';
 class EditListing extends React.Component {
 
@@ -10,14 +10,14 @@ class EditListing extends React.Component {
 
         this.state = {
             Title: '',
-            releaseYear: '',
+            Date: '',
             Poster: '',
             Price: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleGameTitleChange = this.handleGameTitleChange.bind(this);
-        this.handleGameYearChange = this.handleGameYearChange.bind(this);
+        this.handleGameDateChange = this.handleGameDateChange.bind(this);
         this.handleGamePosterChange = this.handleGamePosterChange.bind(this);
         this.handleGamePriceChange = this.handleGamePriceChange.bind(this);
     }
@@ -25,27 +25,27 @@ class EditListing extends React.Component {
 
     componentDidMount() {
         alert(this.props.match.params.id)
-      
+
         axios.get('http://localhost:4000/api/games/' + this.props.match.params.id)
 
-          .then((response) => {
-            this.setState({
-                Title: response.data.title,
-                Year: response.data.year,
-                Poster: response.data.poster,
-                Price: response.data.price,
-                _id: response.data._id
+            .then((response) => {
+                this.setState({
+                    Title: response.data.title,
+                    Date: response.data.date,
+                    Poster: response.data.poster,
+                    Price: response.data.price,
+                    _id: response.data._id
+                })
             })
-          })
-        .catch();
+            .catch();
     }
 
     handleGameTitleChange(e) {
         this.setState({ Title: e.target.value });
     }
 
-    handleGameYearChange(e) {
-        this.setState({ Year: e.target.value });
+    handleGameDateChange(e) {
+        this.setState({ Date: e.target.value });
     }
 
     handleGamePosterChange(e) {
@@ -56,25 +56,26 @@ class EditListing extends React.Component {
     }
 
     handleSubmit(e) {
-        alert(this.state.Title + "      " + this.state.Year
-            + "       " + this.state.Poster + "       " + this.state.Price );
+        alert(this.state.Title + "      " + this.state.Date
+            + "       " + this.state.Poster + "       " + this.state.Price);
         e.preventDefault();
 
 
         const newGane = {
             title: this.state.Title,
-            year: this.state.Year,
+            date: this.state.Date,
             poster: this.state.Poster,
             price: this.state.Price
         };
         this.setState({
             Title: '',
-            Year: '',
+            Date: '',
             Poster: '',
             Price: ''
         });
 
-        axios.put('http://localhost:4000/api/Game/' + this.state._id)
+        axios.put('http://localhost:4000/api/games/:id' + this.state._id)
+
             .then()
             .catch();
     }
@@ -93,12 +94,12 @@ class EditListing extends React.Component {
                         ></input>
                     </div>
                     <div className='form-group'>
-                        <label>Game Year</label>
+                        <label>Game release date (format DD/MM/YYYY)</label>
                         <input
                             type='text'
                             className='form-control'
-                            value={this.state.Year}
-                            onChange={this.handleGameYearChange}
+                            value={this.state.Date}
+                            onChange={this.handleGameDateChange}
                         ></input>
                     </div>
                     <div className='form-group'>
@@ -126,8 +127,8 @@ class EditListing extends React.Component {
                     </div>
                 </form>
                 <Helmet>
-                <style>{'body { background-color: #00ffff; }'}</style>
-          </Helmet>
+                    <style>{'body { background-color: #00ffff; }'}</style>
+                </Helmet>
             </div>
         )
     }
