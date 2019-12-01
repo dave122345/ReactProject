@@ -1,10 +1,17 @@
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
   height: 40vmin;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
 }
 
 .App-header {

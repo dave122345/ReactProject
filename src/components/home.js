@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import '../App.css';
 
-class ListContent extends React.Component {
+class Home extends React.Component {
 
 
 
@@ -20,7 +20,8 @@ class ListContent extends React.Component {
         <h1> </h1>
         <h1> </h1>
         <h1>How to use this database</h1>
-        <p>To create a game listing you will need: the year of release, Price, Name and cover Image associated with it.</p>
+        <p>To create a game listing you will need: the date of release (if not comfirmed or unknown state date as TBC), 
+          Price, Name and cover Image associated with it.</p>
         <p>The game will be listed within the list page and can be deleted/edited from there.</p>
         <p>Not all games need to be in this database you should only put incoming game titles here or
           brand new titles of at least a month old.</p>
@@ -32,4 +33,4 @@ class ListContent extends React.Component {
   }
 }
 
-export default ListContent;
+export default Home;

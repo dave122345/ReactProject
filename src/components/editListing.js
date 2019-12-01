@@ -12,7 +12,8 @@ class EditListing extends React.Component {
             Title: '',
             Date: '',
             Poster: '',
-            Price: ''
+            Price: '',
+            _id: ''
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,12 +62,17 @@ class EditListing extends React.Component {
         e.preventDefault();
 
 
-        const newGane = {
+        const newGame = {
             title: this.state.Title,
             date: this.state.Date,
             poster: this.state.Poster,
             price: this.state.Price
         };
+
+        axios.put('http://localhost:4000/api/games/' + this.state._id, newGame)
+
+            .then()
+            .catch();
         this.setState({
             Title: '',
             Date: '',
@@ -74,10 +80,6 @@ class EditListing extends React.Component {
             Price: ''
         });
 
-        axios.put('http://localhost:4000/api/games/:id' + this.state._id)
-
-            .then()
-            .catch();
     }
     render() {
         return (

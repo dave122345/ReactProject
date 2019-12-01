@@ -23,9 +23,9 @@ class GameItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
 
-        <Card bg="info" border="light" style={{ width: '28rem' }}>
+        <Card bg="info" border="light" style={{ width: '50%' , height: '50%'}}>
           <Card.Header>{this.props.games.title}</Card.Header>
           <Card.Body>
             <blockquote className="blockquote mb-0">

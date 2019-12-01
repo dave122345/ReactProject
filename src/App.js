@@ -1,9 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Listcontent from './components/listContent';
-import Header from './components/header';
-import Footer from './components/footer';
+import Home from './components/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -29,7 +27,7 @@ class App extends React.Component {
             </Nav>
           </Navbar>
           <Switch>
-            <Route exact path="/" component={Listcontent} />
+            <Route exact path="/" component={Home} />
             <Route path="/create_game" component={Creategame} />
             <Route path="/List" component={Readlistings} />
             <Route path="/edit/:id" component={EditListing} />
